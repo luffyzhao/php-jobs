@@ -1,6 +1,6 @@
 ## php 队列生产和消费
 
-目录只完成 beanstalk 
+目前只完成 beanstalk 
 
 ### 服务器要求
 
