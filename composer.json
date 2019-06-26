@@ -1,0 +1,25 @@
+{
+    "name": "luffyzhao/php-jobs",
+    "description": "php 队列生产和消费",
+    "minimum-stability": "stable",
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "enqueue/enqueue": "^0.9.12",
+        "enqueue/pheanstalk": "^0.9.12",
+        "ext-pcntl": "*",
+        "ext-posix": "*",
+        "monolog/monolog": "^1.24"
+    },
+    "autoload":{
+        "psr-4": {
+            "Job\\":"src/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
