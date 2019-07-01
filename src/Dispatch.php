@@ -4,28 +4,28 @@
 namespace Job;
 
 use Job\Contracts\Behavior;
+use Job\Contracts\Factory;
 use Job\Factory\PheanstalkFactory;
 
 class Dispatch
 {
     /**
-     * @var PheanstalkFactory
+     * @var Factory
      * @author luffyzhao@vip.126.com
      */
-    private $pheanstalkFactory;
+    private $factory;
 
-    public function __construct(PheanstalkFactory $pheanstalkFactory)
+    public function __construct(Factory $factory)
     {
-        $this->pheanstalkFactory = $pheanstalkFactory;
+        $this->factory = $factory;
     }
 
     /**
      * @param Behavior $behavior
-     * @throws Exceptions\PushException
      * @author luffyzhao@vip.126.com
      */
     public function now(Behavior $behavior)
     {
-        $this->pheanstalkFactory->push($behavior);
+        $this->factory->push($behavior);
     }
 }
