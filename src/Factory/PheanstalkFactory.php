@@ -10,6 +10,7 @@ use Interop\Queue\Exception;
 use Interop\Queue\Exception\InvalidDestinationException;
 use Interop\Queue\Exception\InvalidMessageException;
 use Interop\Queue\Message;
+use Interop\Queue\Queue;
 use Interop\Queue\Topic;
 use Job\Contracts\Behavior;
 use Job\Contracts\Factory;
@@ -28,10 +29,10 @@ class PheanstalkFactory implements Factory
      */
     private $client;
     /**
-     * @var Topic
+     * @var Queue
      * @author luffyzhao@vip.126.com
      */
-    private $topic;
+    private $queue;
     /**
      * @var Credentials
      * @author luffyzhao@vip.126.com
@@ -65,7 +66,7 @@ class PheanstalkFactory implements Factory
             ]);
 
             $this->client = $factory->createContext();
-            $this->topic = $this->client->createTopic($credentials->getQueue());
+            $this->queue = $this->client->createQueue($credentials->getQueue());
 
         } catch (LogicException $exception) {
             throw new ConnectionException($exception->getMessage());
@@ -92,9 +93,9 @@ class PheanstalkFactory implements Factory
                 $message->setTimeToRun($command->getTimeout());
             }
 
-            $topic = $this->topic;
+            $topic = $this->queue;
             if ($command->getQueue()) {
-                $topic = $this->client->createTopic($command->getQueue());
+                $topic = $this->client->createQueue($command->getQueue());
             }
 
             $producer->send($topic, $message);

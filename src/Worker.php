@@ -5,10 +5,10 @@ namespace Job;
 
 
 use Exception;
+use Job\Contracts\Factory;
 use Job\Contracts\Job;
 use Job\Factory\PheanstalkFactory;
 use Monolog\Handler\HandlerInterface;
-use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Throwable;
 
@@ -40,7 +40,7 @@ class Worker
      */
     private $loggerHandler;
 
-    public function __construct(PheanstalkFactory $factory)
+    public function __construct(Factory $factory)
     {
         $this->factory = $factory;
         $this->loggerHandler = new Logger('worker');
@@ -132,7 +132,7 @@ class Worker
                 $this->loggerHandler->error(sprintf(
                     "第 %d 次运行 下次在 %d 秒后运行; %s",
                     $behavior->getRunningCount(),
-                    $behavior->getDelay(),
+                    $behavior->getDelay() ? $behavior->getDelay() / 1000 : $behavior->getDelay(),
                     serialize($behavior)
                 ));
 
@@ -143,9 +143,7 @@ class Worker
                 }
 
             } else {
-
                 $this->loggerHandler->error(sprintf('最后一次机会用完了; %s', serialize($behavior)));
-
             }
 
         }

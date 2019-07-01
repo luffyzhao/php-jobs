@@ -1,6 +1,6 @@
 ## php 队列生产和消费
 
-目前只完成 beanstalk 
+目前只完成 [beanstalk](./src/Factory/PheanstalkFactory.php) 和 [redis](./src/Factory/RedisFactory.php) 
 
 ### 服务器要求
 
@@ -10,8 +10,8 @@
 
 ### 例子
 
-- [生产](./example/push.php)
-- [消费](./example/pop.php)
+- [生产](example/beanstalk/push.php)
+- [消费](example/beanstalk/pop.php)
 
 
 ### 扩展包

@@ -12,7 +12,7 @@ class Test implements Behavior
 {
     use BehaviorAlias;
 
-    protected $timeSot = [0, 15, 30, 30, 30, 30];
+    protected $timeSot = [0, 15000, 30000, 30000, 30000, 30000];
 
     /**
      * @return mixed

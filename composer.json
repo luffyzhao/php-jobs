@@ -9,7 +9,9 @@
         "enqueue/pheanstalk": "^0.9.12",
         "ext-pcntl": "*",
         "ext-posix": "*",
-        "monolog/monolog": "^1.24"
+        "monolog/monolog": "^1.24",
+        "enqueue/redis": "^0.9.12",
+        "predis/predis": "^1"
     },
     "autoload":{
         "psr-4": {
@@ -19,7 +21,7 @@
     "repositories": {
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
+            "url": "https://packagist.laravel-china.org"
         }
     }
 }

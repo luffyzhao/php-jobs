@@ -23,6 +23,7 @@ class ComposerStaticInitdf1cb7dd92c9765d3d1f76b5d1ee1589
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Predis\\' => 7,
             'Pheanstalk\\' => 11,
         ),
         'M' => 
@@ -40,6 +41,7 @@ class ComposerStaticInitdf1cb7dd92c9765d3d1f76b5d1ee1589
         ),
         'E' => 
         array (
+            'Enqueue\\Redis\\' => 14,
             'Enqueue\\Pheanstalk\\' => 19,
             'Enqueue\\Null\\' => 13,
             'Enqueue\\Dsn\\' => 12,
@@ -64,6 +66,10 @@ class ComposerStaticInitdf1cb7dd92c9765d3d1f76b5d1ee1589
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Predis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
         'Pheanstalk\\' => 
         array (
             0 => __DIR__ . '/..' . '/pda/pheanstalk/src',
@@ -83,6 +89,10 @@ class ComposerStaticInitdf1cb7dd92c9765d3d1f76b5d1ee1589
         'Interop\\Amqp\\' => 
         array (
             0 => __DIR__ . '/..' . '/queue-interop/amqp-interop/src',
+        ),
+        'Enqueue\\Redis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enqueue/redis',
         ),
         'Enqueue\\Pheanstalk\\' => 
         array (
