@@ -85,7 +85,7 @@ class RedisFactory implements Factory
             $producer = $this->client->createProducer();
 
             if ($command->getDelay() && $command->getDelay() > 0) {
-                $producer->setDeliveryDelay($command->getDelay());
+                $producer->setDeliveryDelay($command->getDelay() * 1000);
             }
 
             if($command->getTimeout()){

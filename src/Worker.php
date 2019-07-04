@@ -132,7 +132,7 @@ class Worker
                 $this->loggerHandler->error(sprintf(
                     "第 %d 次运行 下次在 %d 秒后运行; %s",
                     $behavior->getRunningCount(),
-                    $behavior->getDelay() ? $behavior->getDelay() / 1000 : $behavior->getDelay(),
+                    $behavior->getDelay() ? $behavior->getDelay() : 0,
                     serialize($behavior)
                 ));
 
