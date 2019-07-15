@@ -123,29 +123,15 @@ class Worker
             $behavior->handle();
             $this->factory->acknowledge($job);
         } catch (Exception | Throwable $exception) {
-
-            $behavior->fail($exception);
-            $this->factory->acknowledge($job);
-
-            if ($behavior->getTries() > $behavior->getRunningCount()) {
-
-                $this->loggerHandler->error(sprintf(
-                    "第 %d 次运行 下次在 %d 秒后运行; %s",
-                    $behavior->getRunningCount(),
-                    $behavior->getDelay() ? $behavior->getDelay() : 0,
-                    serialize($behavior)
-                ));
-
-                try {
+            try {
+                $behavior->fail($exception);
+                $this->factory->acknowledge($job);
+                if ($behavior->getTries() > $behavior->getRunningCount()) {
                     $this->factory->push($behavior);
-                } catch (Exceptions\PushException $exception) {
-                    $this->loggerHandler->error($exception->getMessage());
                 }
-
-            } else {
-                $this->loggerHandler->error(sprintf('最后一次机会用完了; %s', serialize($behavior)));
+            } catch (Exception | Throwable $exception) {
+                $this->loggerHandler->error($exception->getMessage());
             }
-
         }
     }
 
