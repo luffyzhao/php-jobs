@@ -124,8 +124,8 @@ class Worker
             $this->factory->acknowledge($job);
         } catch (Exception | Throwable $exception) {
             try {
-                $behavior->fail($exception);
                 $this->factory->acknowledge($job);
+                $behavior->fail($exception);
                 if ($behavior->getTries() > $behavior->getRunningCount()) {
                     $this->factory->push($behavior);
                 }
