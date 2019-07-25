@@ -88,7 +88,6 @@ class WorkCommand extends Command
 
         $this->container['events']->listen(JobFailed::class, function ($event) {
             $this->writeOutput($event->job, 'failed');
-
             $this->logFailedJob($event);
         });
     }
@@ -119,10 +118,13 @@ class WorkCommand extends Command
         switch ($status) {
             case 'starting':
                 $this->writeStatus($job, 'Processing', 'comment');
+                break;
             case 'success':
                 $this->writeStatus($job, 'Processed', 'info');
+                break;
             case 'failed':
                 $this->writeStatus($job, 'Failed', 'error');
+                break;
         }
     }
 

@@ -18,7 +18,7 @@ return [
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host' => 'beanstalkd',
-            'queue' => 'blpb-queue',
+            'queue' => 'blpb-queue1',
             'retry_after' => 90,
             'block_for' => 0,
         ],
