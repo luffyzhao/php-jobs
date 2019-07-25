@@ -5,17 +5,23 @@
     "type": "library",
     "require": {
         "php": ">=7.1",
-        "enqueue/enqueue": "^0.9.12",
-        "enqueue/pheanstalk": "^0.9.12",
-        "ext-pcntl": "*",
-        "ext-posix": "*",
+        "illuminate/queue": "^5.8",
+        "pda/pheanstalk": "^4.0",
+        "illuminate/events": "^5.8",
+        "illuminate/bus": "^5.8",
+        "vlucas/phpdotenv": "^3.4",
         "monolog/monolog": "^1.24",
-        "enqueue/redis": "^0.9.12",
-        "predis/predis": "^1"
+      "ext-pdo": "*"
     },
     "autoload":{
         "psr-4": {
             "Job\\":"src/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
         }
     }
 }
