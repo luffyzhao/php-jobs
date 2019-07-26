@@ -11,17 +11,11 @@
         "illuminate/bus": "^5.8",
         "vlucas/phpdotenv": "^3.4",
         "monolog/monolog": "^1.24",
-      "ext-pdo": "*"
+         "ext-pdo": "*"
     },
     "autoload":{
         "psr-4": {
             "Job\\":"src/"
-        }
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/"
         }
     }
 }

@@ -6,16 +6,8 @@
 
 - PHP >= 7.1.3
 - ext-pcntl
-- ext-posix
+- ext-pdo
 
 ### 例子
 
-- [生产](example/beanstalk/push.php)
-- [消费](example/beanstalk/pop.php)
-
-
-### 扩展包
-
-- enqueue/enqueue
-- enqueue/pheanstalk
-- monolog/monolog
+- [生产](examples/test.php)
