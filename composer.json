@@ -1,22 +1,25 @@
 {
-    "name": "luffyzhao/php-jobs",
-    "description": "php 队列生产和消费",
-    "minimum-stability": "stable",
-    "type": "library",
-    "require": {
-        "php": ">=7.1",
-        "illuminate/queue": "^5.8",
-        "pda/pheanstalk": "^4.0",
-        "illuminate/events": "^5.8",
-        "illuminate/bus": "^5.8",
-        "vlucas/phpdotenv": "^3.4",
-        "monolog/monolog": "^1.24",
-         "ext-pdo": "*",
-        "ext-json": "*"
-    },
-    "autoload":{
-        "psr-4": {
-            "Job\\":"src/"
-        }
+  "name": "luffyzhao/php-jobs",
+  "description": "php 队列生产和消费",
+  "minimum-stability": "stable",
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "illuminate/queue": "^5.8",
+    "pda/pheanstalk": "^4.0",
+    "illuminate/events": "^5.8",
+    "illuminate/bus": "^5.8",
+    "vlucas/phpdotenv": "^3.4",
+    "monolog/monolog": "^1.24",
+    "illuminate/config": "^5.8",
+    "illuminate/database": "^5.8",
+    "doctrine/dbal": "^2.9",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Job\\": "src/"
     }
+  }
 }
