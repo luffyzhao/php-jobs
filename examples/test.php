@@ -1,5 +1,7 @@
 <?php
 use Job\Container;
+use Job\FailedCommand;
+use Job\RetryCommand;
 use Job\ServiceProvider;
 use Job\WorkCommand;
 use Symfony\Component\Console\Application;
@@ -20,6 +22,8 @@ $app['queue']->push(new TestJob);
 $application = new Application();
 
 $application->add(new WorkCommand($app));
+$application->add(new FailedCommand($app));
+$application->add(new RetryCommand($app));
 
 $application->run();
 

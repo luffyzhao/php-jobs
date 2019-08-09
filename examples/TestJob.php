@@ -14,6 +14,6 @@ class TestJob implements ShouldQueue
 
     public function handle()
     {
-
+        throw new InvalidArgumentException('测试');
     }
 }
