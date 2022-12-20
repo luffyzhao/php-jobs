@@ -2,7 +2,7 @@
 namespace Job\Queue;
 
 use Interop\Amqp\AmqpQueue;
-use ladimirYuldashev\LaravelQueueRabbitMQ\Queue\RabbitMQQueue as RabbitMQQueueBase;
+use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\RabbitMQQueue as RabbitMQQueueBase;
 use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob;
 
 class RabbitMQQueue extends RabbitMQQueueBase
