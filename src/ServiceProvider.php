@@ -36,6 +36,7 @@ use Monolog\Logger;
 use SplFileInfo;
 use Illuminate\Contracts\Container\Container;
 use Symfony\Component\Finder\Finder;
+use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\Connectors\RabbitMQConnector;
 
 class ServiceProvider extends SupportServiceProvider implements DeferrableProvider
 {
@@ -151,6 +152,12 @@ class ServiceProvider extends SupportServiceProvider implements DeferrableProvid
                 $provider = new QueueServiceProvider($this->app);
                 $provider->registerConnectors($manager);
             });
+
+            if(class_exists(RabbitMQConnector::class)){
+                $manager->addConnector('rabbitmq', function () {
+                    return new RabbitMQConnector($this->app['events']);
+                });
+            }
         });
 
         //注册
