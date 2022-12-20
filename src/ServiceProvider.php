@@ -151,13 +151,13 @@ class ServiceProvider extends SupportServiceProvider implements DeferrableProvid
             return tap(new QueueManager($app), function ($manager) {
                 $provider = new QueueServiceProvider($this->app);
                 $provider->registerConnectors($manager);
-            });
 
-            if(class_exists(RabbitMQConnector::class)){
-                $manager->addConnector('rabbitmq', function () {
-                    return new RabbitMQConnector($this->app['events']);
-                });
-            }
+                if(class_exists(RabbitMQConnector::class)){
+                    $manager->addConnector('rabbitmq', function () {
+                        return new RabbitMQConnector($this->app['events']);
+                    });
+                }
+            });
         });
 
         //注册
